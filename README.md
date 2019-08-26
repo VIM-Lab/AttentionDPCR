@@ -7,6 +7,22 @@ This repository contains the source codes for the paper "Attention-Based Dense P
 # Dataset
 We train and validate our model on the ShapeNet dataset. The code of data preprocessing is released and the guideline is coming soon.
 
+# Setup
+Before get started, you may need to install numpy, tensorflow-gpu-1.4, python-opencv etc. by pip or sudo apt-get. Then you need to complie some CUDA code.
+```
+$ cd metric
+$ make
+
+$ cd ..\model\layer\tf_ops
+$ cd grouping
+$ bash tf_grouping_compile.sh
+$ cd ..\interpolating
+$ bash tf_interpolating_compile.sh
+$ cd ..\sampling
+$ bash tf_sampling_compile.sh
+
+```
+
 # Training
 Our network is a two-stage training network.
 * To train sparse point cloud generation network, run:
@@ -23,8 +39,8 @@ python train_finetune.py finetune
 ```
 
 # Visualization
-## ShapeNet
+**ShapeNet**
 Below are a few sample reconstructions from our trained model tested on ShapeNet. 
 
-## Pix3D
+**Pix3D**
 Below are a few sample reconstructions from our trained model tested on real-world Pix3D dataset. Note that we mask out the background using the provided masks before passing the images through the network. 
